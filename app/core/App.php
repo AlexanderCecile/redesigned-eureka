@@ -66,7 +66,7 @@ class App{
 
         $url = $_GET['url'];
 
-        include('app/routes.php');
+        include('routes.php');
 
         [$controllerMethod, $namedParams] = $this->resolve($url);
 
