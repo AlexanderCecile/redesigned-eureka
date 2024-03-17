@@ -1,2 +1,2 @@
 <?php
-$this->addRoute('','Main,showMain');
+// $this->addRoute('','Main,showMain');
