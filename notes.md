@@ -9,7 +9,7 @@ MySQL/database stuff is a rabbit hole, even for this simple program.
 
 Amongst many other things, beware differences between MYSQL 8.0 and MariaDB 10.4, see [this section](https://mariadb.com/kb/en/incompatibilities-and-feature-differences-between-mariadb-10-4-and-mysql-8-/) of the MariaDB docs.
 
-
+<br>
 
 Character sets and encoding:
 - Restrict usernames to A-Z + a-z + 0-9 + dashes and underscores, max length 10

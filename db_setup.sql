@@ -43,3 +43,5 @@ CREATE TABLE `publication_comment` (
     CONSTRAINT FOREIGN KEY (`profile_id`) REFERENCES `profile` (`profile_id`) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY (`publication_id`) REFERENCES `publication` (`publication_id`)
 );
+
+INSERT INTO `user` (`user_id`, `username`, `password_hash`) VALUES (NULL, 'username1', 'passwdhash');
