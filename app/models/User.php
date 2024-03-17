@@ -5,23 +5,31 @@ namespace app\models;
 use PDO;
 
 class User extends \app\core\Model {
-	public $user_id;
-	public $username;
-	public $password_hash;
-
-
+	public string $user_id;
+	public string $username;
+	public string $password_hash;
 	/*
-	This feels strange. Since this isn't a static function, aren't we creating a dummy User object only to throw it away almost immediately?
-
-	Returns a User object or false.
+	private function __construct(string $user_id='', string $username='', string $password_hash='') {
+		parent::__construct();
+		$this->user_id = $user_id;
+		$this->username = $username;
+		$this->password_hash = $password_hash;
+	}
 	*/
-	public function getByUsername($param_username) {
+	
+
+
+	public function getByUsername($username) {
 		$raw_sql = 'SELECT * FROM user WHERE username = :username';
 		$statement = self::$_conn->prepare($raw_sql);
-		$statement->bindValue(':username', $param_username);
+		$statement->bindValue(':username', $username);
+
+		$statement->setFetchMode(PDO::FETCH_INTO, $this);
 		$statement->execute();
-		$statement->setFetchMode(PDO::FETCH_CLASS, 'app\models\User');
-		return $statement->fetch();
+		
+		
+		return $statement->fetch();;
+
 	}
 
 }
