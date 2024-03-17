@@ -12,9 +12,10 @@ class Model{
 		$dbname = 'socmed';
 		$user = 'root';
 		$pass = '';
+		$charset = 'utf8mb4';
 		try { # MySQL with PDO_MYSQL
 			if(self::$_conn == null){
-				self::$_conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+				self::$_conn = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset", $user, $pass);
 				//for development purposes, we cause exceptions on all problems instead of only warnings
 				self::$_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			}//otherwise the connection exists
