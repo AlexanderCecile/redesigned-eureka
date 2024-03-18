@@ -23,5 +23,9 @@ $t2 = \app\models\Publication::getByUserID($conn, $t1->user_id);
 
 var_dump($t2);
 
+$t3 = \app\models\Comment::getByPublicationID($conn, $t2[0]->publication_id);
+
+var_dump($t3);
+
 echo '</pre>';
 ?>

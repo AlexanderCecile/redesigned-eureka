@@ -5,15 +5,15 @@ namespace app\models;
 use PDO;
 
 class User {
-	public ?string $user_id;
-	public ?string $username;
-	public ?string $password_hash;
+	public string $user_id;
+	public string $username;
+	public string $password_hash;
 
 	public ?string $first_name;
 	public ?string $middle_name;
 	public ?string $last_name;
 
-	public static function getByUsername($db_conn, $username) {
+	public static function getByUsername(PDO $db_conn, $username) {
 		$raw_sql = 'SELECT * FROM user WHERE username = :username';
 		$statement = $db_conn->prepare($raw_sql);
 		$statement->bindValue(':username', $username);
@@ -23,7 +23,7 @@ class User {
 		return $statement->fetch();
 	}
 
-	public static function createUser($db_conn, $username, $password_hash) {
+	public static function createUser(PDO $db_conn, $username, $password_hash) {
 		$raw_sql = 'INSERT INTO user (username,password_hash) VALUES(:username,:password_hash)';
 		$statement = $db_conn->prepare($raw_sql);
 		$statement->bindValue(':username', $username);
