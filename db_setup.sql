@@ -6,7 +6,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE `user` (
     `user_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `username` TEXT NOT NULL UNIQUE,
+    `username` TEXT COLLATE utf8mb4_bin NOT NULL UNIQUE,
     `password_hash` TEXT NOT NULL,
     `first_name` TEXT NULL,
     `middle_name` TEXT NULL,
