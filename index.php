@@ -1,7 +1,6 @@
 <?php
 use app\core\App;
 require_once('app/core/init.php');
-require_once('app/models/User.php');
 
 $host = 'localhost';
 $dbname = 'socmed';
@@ -15,13 +14,14 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //new App();
 echo '<pre>';
-$test_user = \app\models\User::getByUsername($conn, 'username1');
+$t1 = \app\models\User::getByUsername($conn, 'username1');
 
-var_dump($test_user);
+var_dump($t1);
 
-$new_user = \app\models\User::createUser($conn, 'username9', 'passwordhash2');
 
-var_dump($new_user);
+$t2 = \app\models\Publication::getByUserID($conn, $t1->user_id);
+
+var_dump($t2);
 
 echo '</pre>';
 ?>
