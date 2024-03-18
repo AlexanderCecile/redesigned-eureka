@@ -9,6 +9,10 @@ class User {
 	public ?string $username;
 	public ?string $password_hash;
 
+	public ?string $first_name;
+	public ?string $middle_name;
+	public ?string $last_name;
+
 	public static function getByUsername($db_conn, $username) {
 		$raw_sql = 'SELECT * FROM user WHERE username = :username';
 		$statement = $db_conn->prepare($raw_sql);

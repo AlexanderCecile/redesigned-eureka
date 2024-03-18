@@ -14,9 +14,9 @@ CREATE TABLE `user` (
     CONSTRAINT PRIMARY KEY (`user_id`)
 );
 
-
 CREATE TABLE `publication` (
     `publication_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `parent_publication_id` INT UNSIGNED NULL,
     `user_id` INT UNSIGNED NOT NULL,
     `publication_title` TEXT NOT NULL,
     `publication_text` TEXT NOT NULL,
@@ -24,16 +24,6 @@ CREATE TABLE `publication` (
     `publication_status` ENUM('public', 'private'),
     CONSTRAINT PRIMARY KEY (`publication_id`),
     CONSTRAINT FOREIGN KEY (`user_id`) REFERENCES user (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE `publication_comment` (
-    `publication_comment_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `user_id` INT UNSIGNED NOT NULL,
-    `publication_id` INT UNSIGNED NOT NULL,
-    `timestamp` TIMESTAMP,
-    CONSTRAINT PRIMARY KEY (`publication_comment_id`),
-    CONSTRAINT FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT FOREIGN KEY (`publication_id`) REFERENCES `publication` (`publication_id`)
 );
 
 INSERT INTO `user` (`user_id`, `username`, `password_hash`) VALUES (NULL, 'username1', 'passwdhash');
