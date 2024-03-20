@@ -8,9 +8,9 @@ CREATE TABLE `user` (
     `user_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `username` TEXT COLLATE utf8mb4_bin NOT NULL UNIQUE,
     `password_hash` TEXT NOT NULL,
-    `first_name` TEXT NULL,
-    `middle_name` TEXT NULL,
-    `last_name` TEXT NULL,
+    `first_name` TEXT NOT NULL,
+    `middle_name` TEXT NOT NULL,
+    `last_name` TEXT NOT NULL,
     CONSTRAINT PRIMARY KEY (`user_id`)
 );
 

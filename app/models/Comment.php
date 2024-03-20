@@ -7,6 +7,7 @@ use PDO;
 class Comment {
 	public string $comment_id;
 	public string $user_id;
+	public string $username;
 	public string $publication_id;
 	public string $comment_body;
 	public ?string $timestamp;

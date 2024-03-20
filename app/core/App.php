@@ -1,6 +1,8 @@
 <?php
 namespace app\core;
 
+use \PDO;
+
 class App{
     private $routes = [];
 
@@ -60,7 +62,7 @@ class App{
     }
 
 
-    function __construct(){
+    function __construct(PDO $db_conn){
         //call the appropriate controller class and method to handle the HTTP Request
         //Routing version 1.0
 
@@ -76,6 +78,7 @@ class App{
 
         $controller = '\app\controllers\\' . $controller;
         $controllerInstance = new $controller();
+        $controllerInstance->db_conn = $db_conn;
 
         if($this->filtered($controllerInstance, $method)){
             return;

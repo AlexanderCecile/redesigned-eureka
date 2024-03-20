@@ -9,9 +9,19 @@ class User {
 	public string $username;
 	public string $password_hash;
 
-	public ?string $first_name;
-	public ?string $middle_name;
-	public ?string $last_name;
+	public string $first_name;
+	public string $middle_name;
+	public string $last_name;
+
+	public static function getByUserID(PDO $db_conn, $user_id) {
+		$raw_sql = 'SELECT * FROM `user` WHERE `user_id` = :user_id';
+		$statement = $db_conn->prepare($raw_sql);
+		$statement->bindValue(':user_id', $user_id);
+
+		$statement->setFetchMode(PDO::FETCH_CLASS, User::class);
+		$statement->execute();
+		return $statement->fetch();
+	}
 
 	public static function getByUsername(PDO $db_conn, $username) {
 		$raw_sql = 'SELECT * FROM user WHERE username = :username';
