@@ -8,9 +8,9 @@ CREATE TABLE `user` (
     `user_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `username` TEXT COLLATE utf8mb4_bin NOT NULL UNIQUE,
     `password_hash` TEXT NOT NULL,
-    `first_name` TEXT NOT NULL,
-    `middle_name` TEXT NOT NULL,
-    `last_name` TEXT NOT NULL,
+    `first_name` TEXT NULL,
+    `middle_name` TEXT NULL,
+    `last_name` TEXT NULL,
     CONSTRAINT PRIMARY KEY (`user_id`)
 );
 
@@ -42,7 +42,7 @@ CREATE TABLE `comment` (
 );
 
 
-INSERT INTO `user` (`user_id`, `username`, `password_hash`) VALUES (NULL, 'username1', 'passwdhash');
+INSERT INTO `user` (`user_id`, `username`, `password_hash`, `first_name`, `middle_name`, `last_name`) VALUES (NULL, 'username1', 'passwdhash','John', 'H.', 'Smith');
 
 INSERT INTO `user` (`user_id`, `username`, `password_hash`) VALUES (NULL, 'username2', 'passwdhash');
 

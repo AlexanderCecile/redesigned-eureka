@@ -9,9 +9,9 @@ class User {
 	public string $username;
 	public string $password_hash;
 
-	public string $first_name;
-	public string $middle_name;
-	public string $last_name;
+	public ?string $first_name;
+	public ?string $middle_name;
+	public ?string $last_name;
 
 	public static function getByUserID(PDO $db_conn, $user_id) {
 		$raw_sql = 'SELECT * FROM `user` WHERE `user_id` = :user_id';
@@ -53,6 +53,13 @@ class User {
 				
 			}
 		}
+	}
+
+	public function update(PDO $db_conn) {
+		$raw_sql = 'UPDATE `user` SET `username` = :username, `password_hash` = :password_hash, `first_name` = :first_name, `middle_name` = :middle_name, `last_name` = :last_name WHERE user_id = :user_id';
+		$statement = $db_conn->prepare($raw_sql);
+		$statement->execute((array)$this);
+
 	}
 
 }
