@@ -7,16 +7,14 @@
 </head>
 <body>
 	<form method="post" action="/User/update-profile/<?php echo $data; ?>">
-		<label for="first-name-input">first name:</label>
-		<input type="text" name="first-name-input">
+		<label>first name:<input type="text" name="first-name-input"></label>
 
-		<label for="middle-name-input">middle name:</label>
-		<input type="text" name="middle-name-input">
+		<label>middle name:<input type="text" name="middle-name-input"></label>
+		
+		<label>last name:<input type="text" name="last-name-input"></label>
+		
 
-		<label for="last-name-input">last name:</label>
-		<input type="text" name="last-name-input">
-
-		<button type="submit" value="">Submit</button>
+		<button type="submit">Submit</button>
 
 	</form>
 

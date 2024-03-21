@@ -59,7 +59,6 @@ class User {
 		$raw_sql = 'UPDATE `user` SET `username` = :username, `password_hash` = :password_hash, `first_name` = :first_name, `middle_name` = :middle_name, `last_name` = :last_name WHERE user_id = :user_id';
 		$statement = $db_conn->prepare($raw_sql);
 		$statement->execute((array)$this);
-
 	}
 
 }

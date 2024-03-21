@@ -56,6 +56,28 @@ class User extends \app\core\Controller{
 
 	}
 
+	function login() {
+		if($_SERVER['REQUEST_METHOD'] === 'POST') {
+			$user_obj = \app\models\User::getByUsername($this->db_conn, $_POST['username-input']);
+
+			if (!is_null($user_obj) and password_verify($_POST['password-input'], $user_obj->password_hash)) {
+				$_SESSION['user_id'] = $user_obj->user_id;
+				var_dump($_SESSION);
+				header("location:/User/profile/{$user_obj->user_id}");
+			}
+		}
+
+		else {
+			$this->view('User/login');
+		}
+
+	}
+
+
+	function loginRequired() {
+		$this->view('User/login-required');
+	}
+
 }
 
 ?>

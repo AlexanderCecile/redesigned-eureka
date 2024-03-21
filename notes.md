@@ -11,8 +11,8 @@ Amongst many other things, beware differences between MYSQL 8.0 and MariaDB 10.4
 <br>
 
 Character sets and encoding:
-- Restrict usernames to A-Z + a-z + 0-9 + dashes and underscores, max length 10
-- Restrict passwords to A-Z + a-z + 0-9 + dashes and underscores, max length 20
+- Restrict usernames to A-Z + a-z + 0-9 + dashes and underscores, max length 10?
+- Restrict passwords to A-Z + a-z + 0-9 + dashes and underscores, max length 20?
 - Restrict posts and comments to unicode, UTF-8?
 
 <br>

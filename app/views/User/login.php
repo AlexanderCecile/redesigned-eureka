@@ -8,13 +8,13 @@
 <body>
 
 	<form method="post" action="/User/login">
-		<label for="email-input">email:</label>
-		<input type="email" name="email-input">
+		<label>Username:<input type="text" name="username-input"></label>
+		
 
-		<label for="password-input">password:</label>
-		<input type="password-input" name="password-input">
+		<label>Password:<input type="password-input" name="password-input"></label>
+		
 
-		<button type="submit" name="action" value="">Register</button>
+		<button type="submit">Login</button>
 
 	</form>
 	<a href="/User/register">Go to registration page</a>

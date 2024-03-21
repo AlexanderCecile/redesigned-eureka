@@ -9,7 +9,7 @@ class Publication {
 	public string $user_id;
 	public string $publication_title;
 	public string $publication_body;
-	public string $timestamp;
+	public ?string $timestamp;
 	public string $publication_status;
 
 	public static function getByPublicationID(PDO $db_conn, $publication_id) {
@@ -41,6 +41,13 @@ class Publication {
 		$statement->setFetchMode(PDO::FETCH_CLASS, Publication::Class);
 		$statement->execute();
 		return $statement->fetchAll();
+	}
+
+	public function insert(PDO $db_conn) {
+		$raw_sql = 'INSERT INTO `publication` (`publication_id`, `user_id`, `publication_title`, `publication_body`, `timestamp`, `publication_status`) VALUES (NULL, :user_id, :publication_title, :publication_body, NULL, :publication_status)';
+		$statement = $db_conn->prepare($raw_sql);
+		$statement->execute((array)$this);
+
 	}
 
 

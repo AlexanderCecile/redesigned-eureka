@@ -48,7 +48,7 @@ INSERT INTO `user` (`user_id`, `username`, `password_hash`) VALUES (NULL, 'usern
 
 INSERT INTO `publication` (`publication_id`, `user_id`, `publication_title`, `publication_body`, `timestamp`, `publication_status`) VALUES (NULL, '1', 'Some title 1', 'A body', NULL, 'public');
 
-INSERT INTO `publication` (`publication_id`, `user_id`, `publication_title`, `publication_body`, `timestamp`, `publication_status`) VALUES (NULL, '1', 'Some title 2', 'A body 2', NULL, 'public');
+INSERT INTO `publication` (`publication_id`, `user_id`, `publication_title`, `publication_body`, `timestamp`, `publication_status`) VALUES (NULL, '2', 'Some title 2', 'A body 2', NULL, 'private');
 
 INSERT INTO `comment` (`comment_id`, `user_id`, `publication_id`, `comment_body`, `timestamp`) VALUES (NULL, '1', '1', 'Comment 1 body', NULL);
 
