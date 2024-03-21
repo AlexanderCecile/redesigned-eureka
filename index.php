@@ -1,7 +1,7 @@
 <?php
 use app\core\App;
 
-require_once('app/core/init.php');
+require('app/core/init.php');
 
 $host = 'localhost';
 $dbname = 'socmed';
@@ -12,7 +12,11 @@ $charset = 'utf8mb4';
 $conn = new \PDO("mysql:host=$host;dbname=$dbname;charset=$charset", $user, $pass);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+
+
 new App($conn);
+
+
 
 /*
 

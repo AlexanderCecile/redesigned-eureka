@@ -5,7 +5,7 @@ namespace app\models;
 use PDO;
 
 class Publication {
-	public string $publication_id;
+	public ?string $publication_id;
 	public string $user_id;
 	public string $publication_title;
 	public string $publication_body;

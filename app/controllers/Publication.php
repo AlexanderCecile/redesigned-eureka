@@ -12,6 +12,12 @@ class Publication extends \app\core\Controller {
 	}
 
 	function show($publication_id) {
+		echo '<pre>';
+		var_dump($_REQUEST);
+		var_dump($_SERVER);
+		echo $publication_id;
+		debug_print_backtrace();
+		echo '</pre>';
 		$pub = \app\models\Publication::getByPublicationID($this->db_conn, $publication_id);
 		if ($pub !== false) {
 			$pub_comments = \app\models\Comment::getByPublicationID($this->db_conn, $publication_id);
@@ -27,6 +33,7 @@ class Publication extends \app\core\Controller {
 
 		else {
 			// redirect to generic 503 error page?
+			//header('location:/Main');
 		}
 
 	}
@@ -34,6 +41,7 @@ class Publication extends \app\core\Controller {
 	function publicationFeed() {
 		echo '<h2>Publication Feed</h2>';
 		var_dump($_SESSION);
+		var_dump($_SERVER);
 		$this->view('Publication/create-publication');
 		echo '<hr>';
 		$this->showList();
@@ -41,15 +49,18 @@ class Publication extends \app\core\Controller {
 
 	//#[\app\filters\IsLoggedIn]
 	function create() {
+		var_dump($_SERVER);
+		var_dump($_REQUEST);
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-			$pub = new \app\models\Publication();
+			
+			$pub = new \app\models\Publication;
 			$pub->user_id = $_SESSION['user_id'];
 			$pub->publication_title = $_POST['publication-title'];
 			$pub->publication_body = $_POST['publication-body'];
 			$pub->publication_status = $_POST['publication-visibility'];
 
 			$pub->insert($this->db_conn);
-			header("location:/User/profile/{$_SESSION['user_id']}");
+			//header("location:/User/profile/{$_SESSION['user_id']}");
 
 		}
 

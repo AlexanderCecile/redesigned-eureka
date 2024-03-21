@@ -62,7 +62,6 @@ class User extends \app\core\Controller{
 
 			if (!is_null($user_obj) and password_verify($_POST['password-input'], $user_obj->password_hash)) {
 				$_SESSION['user_id'] = $user_obj->user_id;
-				var_dump($_SESSION);
 				header("location:/User/profile/{$user_obj->user_id}");
 			}
 		}

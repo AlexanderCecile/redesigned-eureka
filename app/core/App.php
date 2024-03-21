@@ -83,6 +83,11 @@ class App{
         if($this->filtered($controllerInstance, $method)){
             return;
         }
+        echo '<pre>';
+        var_dump($this->resolve('Publication/create'));
+        var_dump($this->routes);
+        var_dump($method);
+        echo '</pre>';
 
         call_user_func_array([$controllerInstance, $method], $namedParams);
 

@@ -1,5 +1,5 @@
 <?php
-$this->addRoute('','Publication,publicationFeed');
+$this->addRoute('Main','Publication,publicationFeed');
 $this->addRoute('Publication/{publication_id}','Publication,show');
 $this->addRoute('User/register','User,register');
 $this->addRoute('User/update-profile/{user_id}','User,updateProfile');
